@@ -215,10 +215,6 @@ class Command extends LineAPI {
 
 
     spam2() {
-                    this._sendMessage(this.messages, `3`);
-                    this._sendMessage(this.messages, `2`);
-                    this._sendMessage(this.messages, `1`);
-                    this._sendMessage(this.messages, `Fuck Off`);
                     this._sendMessage(this.messages, `Ku mengejar bus yang mulai berjalan`);
                     this._sendMessage(this.messages, `Ku ingin ungkapkan kepada dirimu`);
                     this._sendMessage(this.messages, `Kabut dalam hatiku telah menghilang`);
@@ -226,60 +222,6 @@ class Command extends LineAPI {
                     this._sendMessage(this.messages, `Walaupun jawaban itu sebenarnya begitu mudah`);
                     this._sendMessage(this.messages, `Tetapi entah mengapa diriku melewatkannya`);
                     this._sendMessage(this.messages, `Untukku menjadi diri sendiri`);
-                    this._sendMessage(this.messages, `Ku harus jujur, pada perasaanku`);
-                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
-                    this._sendMessage(this.messages, `Ku berlari sekuat tenaga`);
-                    this._sendMessage(this.messages, `Ku suka selalu ku suka`);
-                    this._sendMessage(this.messages, `Ku teriak sebisa suaraku`);
-                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
-                    this._sendMessage(this.messages, `Walau susah untukku bernapas`);
-                    this._sendMessage(this.messages, `Tak akan ku sembunyikan`);
-                    this._sendMessage(this.messages, `Oogoe daiyamondo~`);
-                    this._sendMessage(this.messages, `Saat ku sadari sesuatu menghilang`);
-                    this._sendMessage(this.messages, `Hati ini pun resah tidak tertahankan`);
-                    this._sendMessage(this.messages, `Sekarang juga yang bisa ku lakukan`);
-                    this._sendMessage(this.messages, `Merubah perasaan ke dalam kata kata`);
-                    this._sendMessage(this.messages, `Mengapa sedari tadi`);
-                    this._sendMessage(this.messages, `Aku hanya menatap langit`);
-                    this._sendMessage(this.messages, `Mataku berkaca kaca`);
-                    this._sendMessage(this.messages, `Berlinang tak bisa berhenti`);
-                    this._sendMessage(this.messages, `Di tempat kita tinggal, didunia ini`);
-                    this._sendMessage(this.messages, `Dipenuhi cinta, kepada seseorang`);
-                    this._sendMessage(this.messages, `Ku yakin ooo ku yakin`);
-                    this._sendMessage(this.messages, `Janji tak lepas dirimu lagi`);
-                    this._sendMessage(this.messages, `Ku yakin ooo ku yakin`);
-                    this._sendMessage(this.messages, `Akhirnya kita bisa bertemu`);
-                    this._sendMessage(this.messages, `Ku yakin ooo ku yakin`);
-                    this._sendMessage(this.messages, `Ku akan bahagiakan dirimu`);
-                    this._sendMessage(this.messages, `Ku ingin kau mendengarkan`);
-                    this._sendMessage(this.messages, `Oogoe daiyamondo~`);
-                    this._sendMessage(this.messages, `Jika jika kamu ragu`);
-                    this._sendMessage(this.messages, `Takkan bisa memulai apapun`);
-                    this._sendMessage(this.messages, `Ungkapkan perasaanmu`);
-                    this._sendMessage(this.messages, `Jujurlah dari sekarang juga`);
-                    this._sendMessage(this.messages, `Jika kau bersuar`);
-                    this._sendMessage(this.messages, `Cahaya kan bersinar`);
-                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
-                    this._sendMessage(this.messages, `Ku berlari sekuat tenaga`);
-                    this._sendMessage(this.messages, `Ku suka selalu ku suka`);
-                    this._sendMessage(this.messages, `Ku teriak sebisa suaraku`);
-                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
-                    this._sendMessage(this.messages, `Sampaikan rasa sayangku ini`);
-                    this._sendMessage(this.messages, `Ku suka selalu ku suka`);
-                    this._sendMessage(this.messages, `Ku teriakkan ditengah angin`);
-                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
-                    this._sendMessage(this.messages, `Walau susah untuk ku bernapas`);
-                    this._sendMessage(this.messages, `Tak akan ku sembunyikan`);
-                    this._sendMessage(this.messages, `Oogoe daiyamondo~`);
-                    this._sendMessage(this.messages, `Katakan dengan berani`);
-                    this._sendMessage(this.messages, `Jika kau diam kan tetap sama`);
-                    this._sendMessage(this.messages, `Janganlah kau merasa malu`);
-                    this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
-                    this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
-                    this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
-                    this._sendMessage(this.messages, `Ungkapkan perasaanmu`);
-                    this._sendMessage(this.messages, `Jujurlah dari sekarang juga..`);
-                    this._sendMessage(this.messages, `SPAM IS DONE`);
            return;
     }
 
@@ -323,7 +265,7 @@ creator() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u14f64e139a3817afaabe27d237afb36b'}
+            { mid: 'u813e54635fa8ca8c016090e933582652'}
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -335,7 +277,7 @@ admin1() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u14f64e139a3817afaabe27d237afb36b'}
+            { mid: 'u813e54635fa8ca8c016090e933582652'}
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -347,7 +289,7 @@ admin2() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u653c0c37cdaefb7f583023c02cb8384a' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -359,7 +301,7 @@ admin3() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u2297b268eec8988b3c32ffa058b0a248' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -371,7 +313,7 @@ admin4() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'uea50f7108c44b400a9f70b75f7848fcf' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -383,7 +325,7 @@ admin5() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u32ef4dadf69649c7199b81bb7f4a3df0' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -395,7 +337,7 @@ admin6() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'ua89b571977cb320814c4175591db2d23' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -407,7 +349,7 @@ admin7() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u90a32052cf753761431423d1ee234591' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -419,7 +361,7 @@ admin8() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u8b8fad7361ed7c32a1b9c2448732f528' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -431,7 +373,7 @@ admin9() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u7cbe6149e62a5df0d42c46f590760601' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -443,7 +385,7 @@ admin10() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u8748762cfc5091da024235c27975a0e0' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -455,7 +397,7 @@ admin11() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'ue43a33a6ea6350447b7ca1de72e23c2e' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -467,7 +409,7 @@ admin12() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u8333a7b83f7742aa795672420d2376df' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -479,7 +421,7 @@ admin13() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'ud7fb95cc02f0f7d09898669633520040' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -722,7 +664,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-     {             this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+     {             this._sendMessage(this.messages, ` Administrator by: •[BLVCK DRAGON]™• •㉿Continental™•`);
      }
      }
 
@@ -752,7 +694,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-      {              this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+      {              this._sendMessage(this.messages, `NB : Ketik " Administrator by: •[BLVCK DRAGON]™• •㉿Continental™•`);
      }
      }
 
@@ -782,7 +724,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-                    this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+                    this._sendMessage(this.messages, ` Administrator by: •[BLVCK DRAGON]™• •㉿Continental™•`);
      }
 
     help3() {
@@ -812,7 +754,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 }
-                 this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+                 this._sendMessage(this.messages, ` Administrator by: •[BLVCK DRAGON]™• •㉿Continental™•`);
      }
 
     chat1() {
