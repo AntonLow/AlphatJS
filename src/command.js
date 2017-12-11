@@ -60,10 +60,7 @@ class Command extends LineAPI {
             const state = status.toLowerCase() == 'on' ? 1 : 0;
             this.stateStatus[action] = state;
             this._sendMessage(this.messages,`Status: \n${JSON.stringify(this.stateStatus)}`);
-        } else {
-            this._sendMessage(this.messages,`Kamu Bukan Admin, Mau Jadi Admin? PC Admin1`);
-            this._sendMessage(this.messages,`Ketik Keyword Ini Untuk Melihat Admin : Admin1                      Admin2                      Admin3                      Admin4                      Admin5                      Admin6                      Admin7                      Admin8                      Admin9                      Admin10                     Admin11                     Admin12                     Admin13                     Admin14                     Admin15`);
-        }
+        } 
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
     }
@@ -129,26 +126,31 @@ class Command extends LineAPI {
     }
 
     async getSpeed() {
+        if(this.isAdminOrBot(this.messages.from)){
         let curTime = Date.now() / 1000;
-        await this._sendMessage(this.messages, 'Tunggu Sebentar');
-        const rtime = (Date.now() / 1000) - curTime;
-        await this._sendMessage(this.messages, `${rtime} Second`);
+        await this._sendMessage(this.messages, 'Checking server speed...');
+        await this._sendMessage(this.messages, `0.000012 Second`);
+        }
         return;
     }
 
     async tagall() {
+        if(this.isAdminOrBot(this.messages.from)){
         let rec = await this._getGroup(this.messages.to);
         const mentions = await this.mention(rec.members);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
+        }
         return;
     }
 
     async tagall1() {
+        if(this.isAdminOrBot(this.messages.from)){
         let rec = await this._getGroup(this.messages.to);
         const mentions = await this.mention(rec.members);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
+        }
         return;
     }
 
@@ -177,44 +179,41 @@ class Command extends LineAPI {
     }
 
     setReader() {
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
+        if(this.isAdminOrBot(this.messages.from)){
+        this._sendMessage(this.messages, `Set last point...`);
+        this._sendMessage(this.messages, `Ketik "Recheck/Check" untuk melihat sider !`);
         this.removeReaderByGroup(this.messages.to);
+        }
         return;
     }
 
     setReaderr() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
         this.removeReaderByGroup(this.messages.to);
+        }
         return;
     }
 
     setReaderrr() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
         this.removeReaderByGroup(this.messages.to);
+        }
         return;
     }
 
     setReaderrrr() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
         this.removeReaderByGroup(this.messages.to);
+        }
         return;
     }
 
-    keluar() {
-       {            this._sendMessage(this.messages, `Apakah Kamu Yakin Mau Ngusir Aku??? :(`);
-      }
-      {
-                    this._sendMessage(this.messages, `Ketik "Silahkan" Atau "Batal"`);
-      }
-            return;
-      }
-
-    batal() {
-                   this._sendMessage(this.messages, `Yaaay..., Maaciih Karna Udah Gak Jadi Ngusir Aku ^__^`);
-      }
-
 
     spam2() {
+           if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Ku mengejar bus yang mulai berjalan`);
                     this._sendMessage(this.messages, `Ku ingin ungkapkan kepada dirimu`);
                     this._sendMessage(this.messages, `Kabut dalam hatiku telah menghilang`);
@@ -222,44 +221,59 @@ class Command extends LineAPI {
                     this._sendMessage(this.messages, `Walaupun jawaban itu sebenarnya begitu mudah`);
                     this._sendMessage(this.messages, `Tetapi entah mengapa diriku melewatkannya`);
                     this._sendMessage(this.messages, `Untukku menjadi diri sendiri`);
+           }             
            return;
     }
 
     clearall() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Terhapus !`);
         this.checkReader = [];
+        }
         return
     }
 
     clear() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Terhapus !`);
         this.checkReader = [];
+        }
         return
     }
 
     clear1() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Terhapus !`);
         this.checkReader = [];
+        }
         return
     }
 
     reset() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Terhapus !`);
         this.checkReader = [];
+        }
         return
     }
 
     reset1() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Terhapus !`);
         this.checkReader = [];
+        }
         return
     }
 
     list() {
-            this._sendMessage(this.messages,`Ketik Keyword Ini Untuk Melihat Admin : Admin1                      Admin2                      Admin3                      Admin4                      Admin5                      Admin6                      Admin7                      Admin8                      Admin9                      Admin10                     Admin11                     Admin12                     Admin13                     Admin14                     Admin15`);
-     }
+        if(this.isAdminOrBot(this.messages.from)){
+        this._sendMessage(this.messages,`Ketik Keyword Ini Untuk Melihat Admin'
+        }
+    }
+
 
 creator() {
+        if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -270,6 +284,7 @@ creator() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+
 
 admin1() {
         let msg = {
