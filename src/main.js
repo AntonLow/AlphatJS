@@ -22,7 +22,7 @@ class LINE extends Command {
 
 
     get myBot() {
-        const bot = ['u773cc1cff3e0d57255812b0873fd55a4'];
+        const bot = ['u813e54635fa8ca8c016090e933582652'];
         return bot; 
     }
 
@@ -59,64 +59,6 @@ class LINE extends Command {
             this.qrOpenClose();
         }
 
-        if(operation.type == 19) { //ada kick
-     {
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Jangan Main Kick Sembarangan Kakak!"
-this._client.sendMessage(0,nadyaq);
-     }
-            // op1 = group nya
-            // op2 = yang 'nge' kick
-            // op3 = yang 'di' kick
-
-            if(!this.isAdminOrBot(operation.param2)){
-                this._kickMember(operation.param1,[operation.param2]);
-            } 
-            if(!this.isAdminOrBot(operation.param3)){
-                this._invite(operation.param1,[operation.param3]);
-            }
-
-        }
-
-if(operation.type == 11) { //bukattupQR
-     {
-let nadyasayang = new Message();
-nadyasayang.to = operation.param1;
-nadyasayang.text = "Jangan Ubah Gambar Dan Nama Group/Jangan Dimainin QR-nya -__- "+"•㉿Continental™•"
-this._client.sendMessage(0,nadyasayang);
-     }
-            if(!this.isAdminOrBot(operation.param2)){
-                this._kickMember(operation.param1,[operation.param2]);
-            } 
-}
-
-if(operation.type == 15) { //leave grup
-     {
-let nadyasayang = new Message();
-nadyasayang.to = operation.param1;
-nadyasayang.text = "Kenapa Keluar Dia? Aku Invite Lagi Yaa ^_^"
-
-this._client.sendMessage(0,nadyasayang);
-     }
-  this._invite(operation.param1,[operation.param2]);
-}
-
-if(operation.type == 17) { //joingroup
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Selamat Datang ^_^ Jangan Nakal Yaa Di Group Ini ^_^"+"•㉿Continental™•"
-
-this._client.sendMessage(0,nadyaq);
-}
-
-if(operation.type == 32) { //adaygbatalin
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Kok Dibatalin? Emangnya Dia Siapa?"
-
-this._client.sendMessage(0,nadyaq);
-     }
 
         if(operation.type == 55){ //ada reader
             const idx = this.checkReader.findIndex((v) => {
@@ -137,26 +79,8 @@ this._client.sendMessage(0,nadyaq);
                 }
             }
         }
-
-
-        if(operation.type == 5) { // diadd
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Thx For Add Me ^_^ Invite Me To Your Group ^_^"
-this._client.sendMessage(0,nadyaq);
-}
-
-        if(operation.type == 13) { // diinvite
-                this._acceptGroupInvitation(operation.param1);
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Thx For Invite ^_^ Ketik Help Untuk Melihat Keyword"
-
-this._client.sendMessage(0,nadyaq);
-}
-        this.getOprationType(operation);
-    }
-
+        
+    
     command(msg, reply) {
         if(this.messages.text !== null) {
             if(this.messages.text === msg.trim()) {
@@ -182,7 +106,7 @@ this._client.sendMessage(0,nadyaq);
         let sender = messages.from;
         
 
-        this.command('Siapa kamu', this.getProfile.bind(this));
+        this.command('Me', this.getProfile.bind(this));
         this.command('Status', `Your Status: ${JSON.stringify(this.stateStatus)}`);
         this.command(`Left ${payload}`, this.leftGroupByName.bind(this));
         this.command('Speed', this.getSpeed.bind(this));
@@ -190,62 +114,34 @@ this._client.sendMessage(0,nadyaq);
         this.command(`Kick ${payload}`, this.OnOff.bind(this));
         this.command(`Cancel ${payload}`, this.OnOff.bind(this));
         this.command(`Qrp ${payload}`, this.OnOff.bind(this));
-        this.command(`Kickall ${payload}`,this.kickAll.bind(this));
-        this.command(`Cancelall ${payload}`, this.cancelMember.bind(this));
+        this.command(`Serang ${payload}`,this.kickAll.bind(this));
+        this.command(`Dobol ${payload}`, this.cancelMember.bind(this));
         this.command(`Set`,this.setReader.bind(this));
-        this.command(`set`,this.setReaderr.bind(this));
-        this.command(`Setpoint`,this.setReaderrr.bind(this));
-        this.command(`setpoint`,this.setReaderrrr.bind(this));
+        this.command(`Cctv`,this.setReaderrr.bind(this));
         this.command(`Recheck`,this.rechecks.bind(this));
-        this.command(`recheck`,this.recheckss.bind(this));
         this.command(`Check`,this.rechecksss.bind(this));
-        this.command(`check`,this.recheckssss.bind(this));
+        this.command(`Read`,this.recheckssss.bind(this));
         this.command(`check sider`,this.recheck.bind(this));
-        this.command(`Clearall`,this.clearall.bind(this));
-        this.command(`Clear`,this.clear.bind(this));
-        this.command(`clear`,this.clear1.bind(this));
         this.command(`Reset`,this.reset.bind(this));
-        this.command(`reset`,this.reset1.bind(this));
         this.command('Myid',`Your ID: ${messages.from}`)
-        this.command(`ip ${payload}`,this.checkIP.bind(this))
+        this.command(`Ip ${payload}`,this.checkIP.bind(this))
         this.command(`Ig ${payload}`,this.checkIG.bind(this))
         this.command(`Qr ${payload}`,this.qrOpenClose.bind(this))
         this.command(`Joinqr ${payload}`,this.joinQr.bind(this));
-        this.command(`spam ${payload}`,this.spam2.bind(this));
-        this.command(`Spamgroup ${payload}`,this.spamGroup.bind(this));
+        this.command(`Spam ${payload}`,this.spam2.bind(this));
+        this.command(`Spam group ${payload}`,this.spamGroup.bind(this));
         this.command(`Creator`,this.creator.bind(this));
         this.command(`List admin`,this.list.bind(this));
-        this.command(`Admin1`,this.admin1.bind(this));
-        this.command(`Admin2`,this.admin2.bind(this));
-        this.command(`Admin3`,this.admin3.bind(this));
-        this.command(`Admin4`,this.admin4.bind(this));
-        this.command(`Admin5`,this.admin5.bind(this));
-        this.command(`Admin6`,this.admin6.bind(this));
-        this.command(`Admin7`,this.admin7.bind(this));
-        this.command(`Admin8`,this.admin8.bind(this));
-        this.command(`Admin9`,this.admin9.bind(this));
-        this.command(`Admin10`,this.admin10.bind(this));
-        this.command(`Admin11`,this.admin11.bind(this));
-        this.command(`Admin12`,this.admin12.bind(this));
-        this.command(`Admin13`,this.admin13.bind(this));
-        this.command(`Admin14`,this.admin14.bind(this));
-        this.command(`Admin15`,this.admin15.bind(this));
+        this.command(`Admin`,this.admin1.bind(this));
         this.command(`Pap ${payload}`,this.searchLocalImage.bind(this));
         this.command(`Upload ${payload}`,this.prepareUpload.bind(this));
-        this.command(`Tag all`,this.tagall.bind(this));
+        this.command(`Desah`,this.tagall.bind(this));
         this.command(`Tagall`,this.tagall1.bind(this));
         this.command(`Help`,this.help.bind(this));
-        this.command(`/help`,this.help1.bind(this));
-        this.command(`Keyword`,this.help2.bind(this));
-        this.command(`Key`,this.help3.bind(this));
-        this.command(`Chat1`,this.chat1.bind(this));
-        this.command(`Chat2`,this.chat2.bind(this));
-        this.command(`Chat3`,this.chat3.bind(this));
-        this.command(`Info kick`,this.infokick.bind(this));
+        this.command(`Play`,this.lagu.bind(this));
+        this.command(`Vn`,this.vn.bind(this));
         this.command(`List lagu1`,this.listlagu1.bind(this));
         this.command(`List lagu2`,this.listlagu2.bind(this));
-        this.command(`Chucky keluar`,this.keluar.bind(this));
-        this.command(`Batal`,this.batal.bind(this));
 
 
         if(messages.contentType == 13) {
@@ -258,12 +154,15 @@ this._client.sendMessage(0,nadyaq);
 
   if (messages.text == 'Gift'){
         messages.contentType = 0;
+       if(!this.isAdminOrBot(messages.contentMetadata.mid)) {
        this._sendMessage(messages, "gift sent",messages.contentMetadata=null,messages.contentType=9);
-     }
+       }
+       return;
+       }
 
 
   if (messages.text == 'Silahkan'){
-               await this._sendMessage(messages,'Kakak Jahat :( Lain X Jangan Invite Aku Lagi -,-');
+               await this._sendMessage(messages,'Reinvite -,-');
      {
 this._leaveGroup(this.messages.to);
      }
@@ -275,7 +174,7 @@ this._leaveGroup(this.messages.to);
                 return;
             } else {
                 messages.contentType = 0;
-                this._sendMessage(messages,'Wrong Sender !! Reseted');
+                this._sendMessage(messages,'Wrong Sender! Reseted');
             }
             this.resetStateUpload();
             return;
