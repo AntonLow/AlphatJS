@@ -60,12 +60,14 @@ class Command extends LineAPI {
             const state = status.toLowerCase() == 'on' ? 1 : 0;
             this.stateStatus[action] = state;
             this._sendMessage(this.messages,`Status: \n${JSON.stringify(this.stateStatus)}`);
-        } 
+        } else
+            
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
     }
 
     mention(listMember) {
+        if(this.isAdminOrBot(this.messages.from)){
         let mentionStrings = [''];
         let mid = [''];
         for (var i = 0; i < listMember.length; i++) {
@@ -84,12 +86,13 @@ class Command extends LineAPI {
             let mentionz = `{"S":"${(isNaN(memberStart[k - 1] + 1) ? 0 : memberStart[k - 1] + 1 ) }","E":"${end}","M":"${mid[k + 1]}"}`;
             return mentionz;
         })
+        }
         return {
             names: mentionStrings.slice(1),
             cmddata: { MENTION: `{"MENTIONEES":[${mentionMember}]}` }
         }
-    }
-
+}
+    
     async leftGroupByName(name) {
         let payload = name || this.payload.join(' ');
         let gid = await this._findGroupByName(payload);
@@ -127,7 +130,6 @@ class Command extends LineAPI {
 
     async getSpeed() {
         if(this.isAdminOrBot(this.messages.from)){
-        let curTime = Date.now() / 1000;
         await this._sendMessage(this.messages, 'Checking server speed...');
         await this._sendMessage(this.messages, `0.000012 Second`);
         }
@@ -163,7 +165,7 @@ class Command extends LineAPI {
         this._sendFile(this.messages,`${__dirname}/../download/${this.payload.join(' ')}.m4a`,3);
     }
     {
-        this._sendMessage(this.messages, `Ok, Sabar Ya Kak, Tungguin... Lagu Kakak Lagi Aku Prosses ^_^`);
+        this._sendMessage(this.messages, `Downloading your song. Please wait...`);
     }
     }
 
@@ -181,15 +183,7 @@ class Command extends LineAPI {
     setReader() {
         if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Set last point...`);
-        this._sendMessage(this.messages, `Ketik "Recheck/Check" untuk melihat sider !`);
-        this.removeReaderByGroup(this.messages.to);
-        }
-        return;
-    }
-
-    setReaderr() {
-        if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Ketik "Recheck" untuk melihat sider !`);
         this.removeReaderByGroup(this.messages.to);
         }
         return;
@@ -197,15 +191,8 @@ class Command extends LineAPI {
 
     setReaderrr() {
         if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
-        this.removeReaderByGroup(this.messages.to);
-        }
-        return;
-    }
-
-    setReaderrrr() {
-        if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Set last point...`);
+        this._sendMessage(this.messages, `Ketik "Recheck" untuk melihat sider !`);
         this.removeReaderByGroup(this.messages.to);
         }
         return;
@@ -221,53 +208,76 @@ class Command extends LineAPI {
                     this._sendMessage(this.messages, `Walaupun jawaban itu sebenarnya begitu mudah`);
                     this._sendMessage(this.messages, `Tetapi entah mengapa diriku melewatkannya`);
                     this._sendMessage(this.messages, `Untukku menjadi diri sendiri`);
+                    this._sendMessage(this.messages, `Ku harus jujur, pada perasaanku`);
+                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
+                    this._sendMessage(this.messages, `Ku berlari sekuat tenaga`);
+                    this._sendMessage(this.messages, `Ku suka selalu ku suka`);
+                    this._sendMessage(this.messages, `Ku teriak sebisa suaraku`);
+                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
+                    this._sendMessage(this.messages, `Walau susah untukku bernapas`);
+                    this._sendMessage(this.messages, `Tak akan ku sembunyikan`);
+                    this._sendMessage(this.messages, `Oogoe daiyamondo~`);
+                    this._sendMessage(this.messages, `Saat ku sadari sesuatu menghilang`);
+                    this._sendMessage(this.messages, `Hati ini pun resah tidak tertahankan`);
+                    this._sendMessage(this.messages, `Sekarang juga yang bisa ku lakukan`);
+                    this._sendMessage(this.messages, `Merubah perasaan ke dalam kata kata`);
+                    this._sendMessage(this.messages, `Mengapa sedari tadi`);
+                    this._sendMessage(this.messages, `Aku hanya menatap langit`);
+                    this._sendMessage(this.messages, `Mataku berkaca kaca`);
+                    this._sendMessage(this.messages, `Berlinang tak bisa berhenti`);
+                    this._sendMessage(this.messages, `Di tempat kita tinggal, didunia ini`);
+                    this._sendMessage(this.messages, `Dipenuhi cinta, kepada seseorang`);
+                    this._sendMessage(this.messages, `Ku yakin ooo ku yakin`);
+                    this._sendMessage(this.messages, `Janji tak lepas dirimu lagi`);
+                    this._sendMessage(this.messages, `Ku yakin ooo ku yakin`);
+                    this._sendMessage(this.messages, `Akhirnya kita bisa bertemu`);
+                    this._sendMessage(this.messages, `Ku yakin ooo ku yakin`);
+                    this._sendMessage(this.messages, `Ku akan bahagiakan dirimu`);
+                    this._sendMessage(this.messages, `Ku ingin kau mendengarkan`);
+                    this._sendMessage(this.messages, `Oogoe daiyamondo~`);
+                    this._sendMessage(this.messages, `Jika jika kamu ragu`);
+                    this._sendMessage(this.messages, `Takkan bisa memulai apapun`);
+                    this._sendMessage(this.messages, `Ungkapkan perasaanmu`);
+                    this._sendMessage(this.messages, `Jujurlah dari sekarang juga`);
+                    this._sendMessage(this.messages, `Jika kau bersuar`);
+                    this._sendMessage(this.messages, `Cahaya kan bersinar`);
+                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
+                    this._sendMessage(this.messages, `Ku berlari sekuat tenaga`);
+                    this._sendMessage(this.messages, `Ku suka selalu ku suka`);
+                    this._sendMessage(this.messages, `Ku teriak sebisa suaraku`);
+                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
+                    this._sendMessage(this.messages, `Sampaikan rasa sayangku ini`);
+                    this._sendMessage(this.messages, `Ku suka selalu ku suka`);
+                    this._sendMessage(this.messages, `Ku teriakkan ditengah angin`);
+                    this._sendMessage(this.messages, `Ku suka dirimu ku suka`);
+                    this._sendMessage(this.messages, `Walau susah untuk ku bernapas`);
+                    this._sendMessage(this.messages, `Tak akan ku sembunyikan`);
+                    this._sendMessage(this.messages, `Oogoe daiyamondo~`);
+                    this._sendMessage(this.messages, `Katakan dengan berani`);
+                    this._sendMessage(this.messages, `Jika kau diam kan tetap sama`);
+                    this._sendMessage(this.messages, `Janganlah kau merasa malu`);
+                    this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
+                    this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
+                    this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
+                    this._sendMessage(this.messages, `Ungkapkan perasaanmu`);
+                    this._sendMessage(this.messages, `Jujurlah dari sekarang juga..`);
            }             
            return;
     }
 
-    clearall() {
-        if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Terhapus !`);
-        this.checkReader = [];
-        }
-        return
-    }
-
-    clear() {
-        if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Terhapus !`);
-        this.checkReader = [];
-        }
-        return
-    }
-
-    clear1() {
-        if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Terhapus !`);
-        this.checkReader = [];
-        }
-        return
-    }
 
     reset() {
         if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Terhapus !`);
+        this._sendMessage(this.messages, `Data dihapus!`);
         this.checkReader = [];
         }
         return
     }
 
-    reset1() {
-        if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages, `Terhapus !`);
-        this.checkReader = [];
-        }
-        return
-    }
 
     list() {
         if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages,`Ketik Keyword Ini Untuk Melihat Admin'
+        this._sendMessage(this.messages,`Ketik "Admin" Ini Untuk Melihat Admin')
         }
     }
 
@@ -279,7 +289,7 @@ creator() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4'}
+            { mid: 'u813e54635fa8ca8c016090e933582652'}
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -292,183 +302,11 @@ admin1() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4'}
+            { mid: 'u813e54635fa8ca8c016090e933582652'}
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
-
-admin2() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
- }
-
-admin3() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
- }
-
-admin4() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
- }
-
-admin5() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
- }
-
-admin6() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
- }
-
-admin7() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
- }
-
-admin8() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
- }
-
-admin9() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
-}
-
-admin10() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
-}
-
-admin11() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
-}
-
-admin12() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
-}
-
-admin13() {
-        let msg = {
-            text:null,
-            contentType: 13,
-            contentPreview: null,
-            contentMetadata: 
-            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
-        }
-        Object.assign(this.messages,msg);
-        this._sendMessage(this.messages);
-}
-
-    admin14() {
-                    this._sendMessage(this.messages, `Admin 14 Belom Ada`);
-     }
-
-    admin15() {
-                    this._sendMessage(this.messages, `Admin 15 Belom Ada`);
-     }
-
-    admin16() {
-                    this._sendMessage(this.messages, `Admin 16 Belom Ada`);
-     }
-
-    admin17() {
-                    this._sendMessage(this.messages, `Admin 17 Belom Ada`);
-     }
-
-    admin18() {
-                    this._sendMessage(this.messages, `Admin 18 Belom Ada`);
-     }
-
-    admin19() {
-                    this._sendMessage(this.messages, `Admin 19 Belom Ada`);
-     }
-
-    admin20() {
-                    this._sendMessage(this.messages, `Admin 20 Belom Ada`);
-     }
 
 
     resetStateUpload() {
@@ -581,57 +419,44 @@ admin13() {
                     this._sendMessage(this.messages,'Not Found');
                 }
             } else {
-                this._sendMessage(this.messages,'Location Not Found , Maybe di dalem goa');
+                this._sendMessage(this.messages,'Location Not Found');
             }
         })
         return;
     }
 
     async rechecks() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
+        if(this.isAdminOrBot(this.messages.from)){
+        this._sendMessage(this.messages,'Ketik "Reset" Untuk Menghapus List Sider');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
-        return;
-    }
-
-    async recheckss() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
-        let rec = await this.recheck(this.checkReader,this.messages.to);
-        const mentions = await this.mention(rec);
-        this.messages.contentMetadata = mentions.cmddata;
-        await this._sendMessage(this.messages,mentions.names.join(''));
+        }
         return;
     }
 
     async rechecksss() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
+        if(this.isAdminOrBot(this.messages.from)){
+        this._sendMessage(this.messages,'Ketik "Reset" Untuk Menghapus List Sider');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
+        }
         return;
 }
 
     async recheckssss() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
+        if(this.isAdminOrBot(this.messages.from)){
+        this._sendMessage(this.messages,'Ketik "Reset" Untuk Menghapus List Sider');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
+        }
         return;
     }
-
-    infokick() {
-                    this._sendMessage(this.messages, `Cara Menggunakan Fitur Kickall :
-1. Ketik Kick on
-2. Kalau Seperti Ini Berarti Kick Mode Sudah On
-    Status: 
-"cancel":0,"kick":1
-3. Terakhir, Kamu Ketik Kickall (Gak Pake Spasi)
-4. Done~`);
-     }
 
 
     async kickAll() {
@@ -650,234 +475,44 @@ admin13() {
             }
             return;
         } 
-        return this._sendMessage(this.messages, ' Kick Error, Fitur Kick Hanya Untuk Admin Saja!');
+        return this._sendMessage(this.messages, 'Relax sir!');
     }
 
     help() {
-           this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
+           if(this.isAdminOrBot(this.messages.from)){
+           this._sendMessage(this.messages, `           -㉿- Keyword Khusus Admin -㉿-
 •[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
+•[Serang] = Mengekick Semua Member
 •[Cancel On/Off] = On/Off Mode Cancel
-•[Cancelall] = Membatalkan Semua Invite'an
+•[Dobol] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
 
-           🎶 Keyword Dalam Group 🎶
+           -㉿- Keyword Dalam Group -㉿-
 •[Status] = Menampilkan Info Kick&Cancel
 •[Speed] = Ngetest Respons Bot
 •[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk Memulai Sider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
+•[Set] = Untuk Memulai Sider
+•[Recheck] = Melihat List Yang Sider
+•[Reset] = Untuk Hapus List Sider
 •[Myid] = Untuk Mengetahui MID
-•[Ig Username Kamu] = Info Instagram Kamu
+•[Ig Username] = Info Instagram
 •[Qr Open/Close] = Buka/Tutup Link Group
-•[spam] = Bot Akan Spam
+•[Spam] = Bot Akan Spam
+•[Spam group] = Bot Akan Spam Di Group
 •[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
+•[Desah] = Mengetag Semua Member
 •[Creator] = Owner Pembuat Bot
-•[Gift] = Sent Sticker`);
+•[Admin] = Admin Bot
+•[Play JudulLagu] = Bot Akan Mengirim Lagu
+•[Vn Kalimat] = Bot Akan Mengirim Vn
+•[Gift] = Send Sticker`);
 
-     {             this._sendMessage(this.messages, ` Author: [BLVCK DRAGON]™ •㉿Continental™•`);
+     {             this._sendMessage(this.messages, ` Author & Administrator : [BLVCK DRAGON]™`);
      }
-     }
-
-    help1() {
-               this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
-•[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
-•[Cancel On/Off] = On/Off Mode Cancel
-•[Cancelall] = Membatalkan Semua Invite'an
-•[Qrp On/Off]= On/Off Link Group
-
-           🎶 Keyword Dalam Group 🎶
-•[Status] = Menampilkan Info Kick&Cancel
-•[Speed] = Ngetest Respons Bot
-•[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk Memulai Sider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
-•[Myid] = Untuk Mengetahui MID
-•[Ig Username Kamu] = Info Instagram Kamu
-•[Qr Open/Close] = Buka/Tutup Link Group
-•[spam] = Bot Akan Spam
-•[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
-•[Creator] = Owner Pembuat Bot
-•[Gift] = Sent Sticker`);
-
-      {              this._sendMessage(this.messages, `Author: [BLVCK DRAGON]™ •㉿Continental™•`);
      }
      }
 
-    help2() {
-                  this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
-•[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
-•[Cancel On/Off] = On/Off Mode Cancel
-•[Cancelall] = Membatalkan Semua Invite'an
-•[Qrp On/Off]= On/Off Link Group
 
-           🎶 Keyword Dalam Group 🎶
-•[Status] = Menampilkan Info Kick&Cancel
-•[Speed] = Ngetest Respons Bot
-•[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk Memulai Sider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
-•[Myid] = Untuk Mengetahui MID
-•[Ig + Username Kamu] = Info Instagram
-•[Qr Open/Close] = Buka/Tutup Link Group
-•[spam] = Bot Akan Spam
-•[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
-•[Creator] = Owner Pembuat Bot
-•[Gift] = Sent Sticker`);
-
-                    this._sendMessage(this.messages, `Author: [BLVCK DRAGON]™ •㉿Continental™•`);
-     }
-
-    help3() {
-     {
-                  this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
-•[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
-•[Cancel On/Off] = On/Off Mode Cancel
-•[Cancelall] = Membatalkan Semua Invite'an
-•[Qrp On/Off]= On/Off Link Group
-
-           🎶 Keyword Dalam Group 🎶
-•[Status] = Menampilkan Info Kick&Cancel
-•[Speed] = Ngetest Respons Bot
-•[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk MemulaiSider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
-•[Myid] = Untuk Mengetahui MID
-•[Ig + Username Kamu] = Info Instagram
-•[Qr Open/Close] = Buka/Tutup Link Group
-•[spam] = Bot Akan Spam
-•[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
-•[Creator] = Owner Pembuat Bot
-•[Gift] = Sent Sticker`);
-}
-                 this._sendMessage(this.messages, `Author: [BLVCK DRAGON]™ •㉿Continental™•`);
-     }
-
-    chat1() {
-                  this._sendMessage(this.messages, `~[Halo]
-~[Hi]
-~[Babi]
-~[Babik]
-~[Chucky]
-~[P]
-~[.]
-~[O]
-~[?]
-~[Test/Tes]
-~[Pap]
-~[Pap tete]
-~[Pagi/Morning]
-~[Siank/Siang]
-~[Sore]
-~[Malam/Night]
-~[Tidur]
-~[Ayo/Kuy/Ayok/Yuk]
-~[Mabar]
-~[Main/Main?]
-~[Jelek]
-~[Cantik]
-~[Gila/Gilak]
-~[Bot lemot]
-~[Anjing/Njir/Anjir/Njay/Anjer/Njor]
-~[Fuck/Fak]
-~[Reininvite/Rein/R]
-~[@Bye]
-~[Bye]
-~[Editan/Edit]
-~[Wkwkwk/Wkwk/Hahaha/Haha/Hehe]
-~[Ok/Okay/Oke/Okee/Oce]`);
-        {            this._sendMessage(this.messages, `NB : Ketik "Chat2" Untuk Keyword Selanjutnya!`);
-      }
-      }
-
-    chat2() {
-                   this._sendMessage(this.messages, `~[Pc/Cpc]
-~[Gift]
-~[Aduh/Aduhh]
-~[Iya]
-~[Y]
-~[69]
-~[Lagi?/Lagi]
-~[Nah/Nahh]
-~[Taik/Tai]
-~[Ngelag/Lag]
-~[Itu bot]
-~[Mati]
-~[Sayur]
-~[On]
-~[Off]
-~[Ngakak]
-~[Ngantuk]
-~[Laper]
-~[Makan]
-~[Bacot/Cot/Bct]
-~[Masa/Masa?]
-~[Hooh]
-~[Bot peak/Bot pea]
-~[Izin]
-~[Rame]
-~[Sepi]
-~[Sini]
-~[Loading]
-~[Lama/Lama banget]
-~[Udah/Udah?]
-~[Wtf]
-~[Peak/pea]
-~[Siapa]`);
-        {           this._sendMessage(this.messages, `NB : Ketik "Chat3" Untuk Keyword Selanjutnya!`);
-     }
-     }
-
-    chat3() {
-                  this._sendMessage(this.messages, `~[Siapa itu]
-~[Sayang/Beb]
-~[Apa/Apa?]
-~[Pc]
-~[Vc]
-~[Bah]
-~[Welcome/Wc]
-~[Kick me]
-~[Baperan/Baper]
-~[Om]
-~[Wait/Tunggu/Bentar]
-~[Nice]
-~Mantab]
-~[Galau]
-~[Kalah/Lose]
-~[Rank/Rank?]
-~[Sumpah]
-~[Otw]
-~[Gas]
-~[Jomblo/Jones]
-~[Yaudah/Yowes]
-~[Moh/Ga/Gak]
-~[Kids jaman now]
-~[Spam]
-~[Jangan]
-~[Skip]
-~[Undang/Invite]
-~[Bot chucky/Bot]
-~[Kurang 1/-1]
-~[Noob]
-~[Lagi apa?/Lagi apa nadya?]
-~[Php/Pehape]
-~[Sorry/Maaf]`);
-     }
 
     listlagu1() {
                     this._sendMessage(this.messages, `           🎶 List Lagu 1 🎶
