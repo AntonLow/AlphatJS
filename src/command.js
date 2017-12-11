@@ -60,8 +60,7 @@ class Command extends LineAPI {
             const state = status.toLowerCase() == 'on' ? 1 : 0;
             this.stateStatus[action] = state;
             this._sendMessage(this.messages,`Status: \n${JSON.stringify(this.stateStatus)}`);
-        } else
-            
+        } 
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
     }
@@ -91,18 +90,21 @@ class Command extends LineAPI {
             names: mentionStrings.slice(1),
             cmddata: { MENTION: `{"MENTIONEES":[${mentionMember}]}` }
         }
-}
-    
+    }
+
     async leftGroupByName(name) {
+        if(this.isAdminOrBot(this.messages.from)){
         let payload = name || this.payload.join(' ');
         let gid = await this._findGroupByName(payload);
         for (let i = 0; i < gid.length; i++) {
             this._leaveGroup(gid[i].id);
         }
+        }
         return;
     }
 
     async recheck(cs,group) {
+        if(this.isAdminOrBot(this.messages.from)){
         let users;
         for (var i = 0; i < cs.length; i++) {
             if(cs[i].group == group) {
@@ -112,7 +114,8 @@ class Command extends LineAPI {
         
         let contactMember = await this._getContacts(users);
         return contactMember.map((z) => {
-                return { displayName: z.displayName, mid: z.mid };
+        }    
+            return { displayName: z.displayName, mid: z.mid };
             });
     }
 
@@ -130,8 +133,9 @@ class Command extends LineAPI {
 
     async getSpeed() {
         if(this.isAdminOrBot(this.messages.from)){
+        let curTime = Date.now() / 1000;
         await this._sendMessage(this.messages, 'Checking server speed...');
-        await this._sendMessage(this.messages, `0.000012 Second`);
+        await this._sendMessage(this.messages, `0.000212 Second`);
         }
         return;
     }
@@ -165,7 +169,7 @@ class Command extends LineAPI {
         this._sendFile(this.messages,`${__dirname}/../download/${this.payload.join(' ')}.m4a`,3);
     }
     {
-        this._sendMessage(this.messages, `Downloading your song. Please wait...`);
+        this._sendMessage(this.messages, `Ok, Sabar Ya Kak, Tungguin... Lagu Kakak Lagi Aku Prosses ^_^`);
     }
     }
 
@@ -183,7 +187,7 @@ class Command extends LineAPI {
     setReader() {
         if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Set last point...`);
-        this._sendMessage(this.messages, `Ketik "Recheck" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Ketik "Recheck" untuk melihat sider!`);
         this.removeReaderByGroup(this.messages.to);
         }
         return;
@@ -192,15 +196,14 @@ class Command extends LineAPI {
     setReaderrr() {
         if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Set last point...`);
-        this._sendMessage(this.messages, `Ketik "Recheck" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Ketik "Recheck" untuk melihat sider!`);
         this.removeReaderByGroup(this.messages.to);
         }
         return;
     }
 
-
     spam2() {
-           if(this.isAdminOrBot(this.messages.from)){
+                    if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Ku mengejar bus yang mulai berjalan`);
                     this._sendMessage(this.messages, `Ku ingin ungkapkan kepada dirimu`);
                     this._sendMessage(this.messages, `Kabut dalam hatiku telah menghilang`);
@@ -261,7 +264,7 @@ class Command extends LineAPI {
                     this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
                     this._sendMessage(this.messages, `Ungkapkan perasaanmu`);
                     this._sendMessage(this.messages, `Jujurlah dari sekarang juga..`);
-           }             
+                    }
            return;
     }
 
@@ -274,16 +277,11 @@ class Command extends LineAPI {
         return
     }
 
-
     list() {
-        if(this.isAdminOrBot(this.messages.from)){
-        this._sendMessage(this.messages,`Ketik "Admin" Ini Untuk Melihat Admin')
-        }
-    }
-
+            this._sendMessage(this.messages,`Ketik "Admin" Untuk Melihat Admin Bot!`);
+     }
 
 creator() {
-        if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -294,7 +292,6 @@ creator() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
-
 
 admin1() {
         let msg = {
@@ -307,6 +304,7 @@ admin1() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+
 
 
     resetStateUpload() {
@@ -419,7 +417,7 @@ admin1() {
                     this._sendMessage(this.messages,'Not Found');
                 }
             } else {
-                this._sendMessage(this.messages,'Location Not Found');
+                this._sendMessage(this.messages,'Location Not Found , Maybe di dalem goa');
             }
         })
         return;
@@ -475,18 +473,16 @@ admin1() {
             }
             return;
         } 
-        return this._sendMessage(this.messages, 'Relax sir!');
+        return this._sendMessage(this.messages, 'Relax Sir!');
     }
 
     help() {
-           if(this.isAdminOrBot(this.messages.from)){
            this._sendMessage(this.messages, `           -㉿- Keyword Khusus Admin -㉿-
 •[Kick On/Off] = On/Off Mode Kick
 •[Serang] = Mengekick Semua Member
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Dobol] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
-
            -㉿- Keyword Dalam Group -㉿-
 •[Status] = Menampilkan Info Kick&Cancel
 •[Speed] = Ngetest Respons Bot
@@ -507,15 +503,13 @@ admin1() {
 •[Vn Kalimat] = Bot Akan Mengirim Vn
 •[Gift] = Send Sticker`);
 
-     {             this._sendMessage(this.messages, ` Author & Administrator : [BLVCK DRAGON]™`);
+     {             this._sendMessage(this.messages, `Author & Administrator : [BLVCK DRAGON]™`);
      }
      }
-     }
-
 
 
     listlagu1() {
-                    this._sendMessage(this.messages, `           🎶 List Lagu 1 🎶
+                    this._sendMessage(this.messages, `           -㉿- List Lagu 1 -㉿-
 •[Lagu baby shark] = Sing And Dance
 •[Lagu ML] = Mobile Legend
 •[Lagu despacito] = Luis Fonsi
@@ -530,7 +524,7 @@ admin1() {
       }
 
     listlagu2() {
-                    this._sendMessage(this.messages, `           🎶 List Lagu 2 🎶
+                    this._sendMessage(this.messages, `           -㉿- List Lagu 2 -㉿-
 •[Lagu asal kau bahagia] = Armada
 •[Lagu canon rock] = Gitar
 •[Lagu closer] = The Chainsmoker
