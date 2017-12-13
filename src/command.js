@@ -696,6 +696,7 @@ admin13() {
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
+
            ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
 •[Speed] = Test Respons Bot
@@ -712,7 +713,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-     {             this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
+     {             this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
      }
 
@@ -722,6 +723,7 @@ admin13() {
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
+
            ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
 •[Speed] = Test Respons Bot
@@ -738,7 +740,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-      {              this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
+      {              this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
      }
 
@@ -748,6 +750,7 @@ admin13() {
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
+
            ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
 •[Speed] = Test Respons Bot
@@ -764,7 +767,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-                    this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
+                    this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
 
     help3() {
@@ -774,6 +777,7 @@ admin13() {
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
+
            ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
 •[Speed] = Test Respons Bot
@@ -790,7 +794,7 @@ admin13() {
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 }
-                 this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
+                 this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
 
     chat1() {
