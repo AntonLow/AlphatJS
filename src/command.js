@@ -61,9 +61,9 @@ class Command extends LineAPI {
             this.stateStatus[action] = state;
             this._sendMessage(this.messages,`Status: \n${JSON.stringify(this.stateStatus)}`);
         } else {
-            this._sendMessage(this.messages,`Kamu Bukan Admin, Mau Jadi Admin? PC Admin1`);
-            this._sendMessage(this.messages,`Ketik Keyword Ini Untuk Melihat Admin : Admin1                      Admin2                      Admin3                      Admin4                      Admin5                      Admin6                      Admin7                      Admin8                      Admin9                      Admin10                     Admin11                     Admin12                     Admin13                     Admin14                     Admin15`);
-        }
+            this._sendMessage(this.messages,`Maaf kamu bukan Admin!`);
+            this._sendMessage(this.messages,`Ketik keyword ini untuk melihat admin bot : Creator                      Admin1                      Admin2                      Admin3                      Admin4                      Admin5                      Admin6                      Admin7                      Admin8                      Admin9                     Admin10                     Admin11                     Admin12                     Admin13                     Admin14                     Admin15`);
+}
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
     }
@@ -130,7 +130,7 @@ class Command extends LineAPI {
 
     async getSpeed() {
         let curTime = Date.now() / 1000;
-        await this._sendMessage(this.messages, 'Tunggu Sebentar');
+        await this._sendMessage(this.messages, 'Checking server speed...');
         const rtime = (Date.now() / 1000) - curTime;
         await this._sendMessage(this.messages, `${rtime} Second`);
         return;
@@ -161,7 +161,7 @@ class Command extends LineAPI {
         this._sendFile(this.messages,`${__dirname}/../download/${this.payload.join(' ')}.m4a`,3);
     }
     {
-        this._sendMessage(this.messages, `Ok, Sabar Ya Kak, Tungguin... Lagu Kakak Lagi Aku Prosses ^_^`);
+        this._sendMessage(this.messages, `Downloading your song...`);
     }
     }
 
@@ -183,42 +183,38 @@ class Command extends LineAPI {
     }
 
     setReaderr() {
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
     }
 
     setReaderrr() {
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
     }
 
     setReaderrrr() {
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
     }
 
     keluar() {
-       {            this._sendMessage(this.messages, `Apakah Kamu Yakin Mau Ngusir Aku??? :(`);
+       {            this._sendMessage(this.messages, `Apakah kamu yakin mau ngusir aku???`);
       }
       {
-                    this._sendMessage(this.messages, `Ketik "Silahkan" Atau "Batal"`);
+                    this._sendMessage(this.messages, `Ketik "Silahkan" atau "Batal"`);
       }
             return;
       }
 
     batal() {
-                   this._sendMessage(this.messages, `Yaaay..., Maaciih Karna Udah Gak Jadi Ngusir Aku ^__^`);
+                   this._sendMessage(this.messages, `Yaaay..., Maaciih gak jadi ngusir aku`);
       }
 
 
     spam2() {
-                    this._sendMessage(this.messages, `3`);
-                    this._sendMessage(this.messages, `2`);
-                    this._sendMessage(this.messages, `1`);
-                    this._sendMessage(this.messages, `Fuck Off`);
                     this._sendMessage(this.messages, `Ku mengejar bus yang mulai berjalan`);
                     this._sendMessage(this.messages, `Ku ingin ungkapkan kepada dirimu`);
                     this._sendMessage(this.messages, `Kabut dalam hatiku telah menghilang`);
@@ -279,51 +275,50 @@ class Command extends LineAPI {
                     this._sendMessage(this.messages, `“Suka” itu kata paling hebat!`);
                     this._sendMessage(this.messages, `Ungkapkan perasaanmu`);
                     this._sendMessage(this.messages, `Jujurlah dari sekarang juga..`);
-                    this._sendMessage(this.messages, `SPAM IS DONE`);
            return;
     }
 
     clearall() {
-        this._sendMessage(this.messages, `Terhapus !`);
+        this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
     }
 
     clear() {
-        this._sendMessage(this.messages, `Terhapus !`);
+        this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
     }
 
     clear1() {
-        this._sendMessage(this.messages, `Terhapus !`);
+        this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
     }
 
     reset() {
-        this._sendMessage(this.messages, `Terhapus !`);
+        this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
     }
 
     reset1() {
-        this._sendMessage(this.messages, `Terhapus !`);
+        this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
     }
 
     list() {
-            this._sendMessage(this.messages,`Ketik Keyword Ini Untuk Melihat Admin : Admin1                      Admin2                      Admin3                      Admin4                      Admin5                      Admin6                      Admin7                      Admin8                      Admin9                      Admin10                     Admin11                     Admin12                     Admin13                     Admin14                     Admin15`);
-     }
-
+            this._sendMessage(this.messages,`Ketik keyword ini untuk melihat admin bot : Creator                      Admin1                      Admin2                      Admin3                      Admin4                      Admin5                      Admin6                      Admin7                      Admin8                      Admin9                     Admin10                     Admin11                     Admin12                     Admin13                     Admin14                     Admin15`);
+}
+    
 creator() {
         let msg = {
             text:null,
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u14f64e139a3817afaabe27d237afb36b'}
+            { mid: 'u813e54635fa8ca8c016090e933582652'}
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -335,7 +330,7 @@ admin1() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u14f64e139a3817afaabe27d237afb36b'}
+            { mid: 'u8d67d89eeade3917f713d3d3f22df048'}
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -347,7 +342,7 @@ admin2() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u653c0c37cdaefb7f583023c02cb8384a' }
+            { mid: 'u773cc1cff3e0d57255812b0873fd55a4' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -359,7 +354,7 @@ admin3() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u2297b268eec8988b3c32ffa058b0a248' }
+            { mid: 'u88da02958609ecc859dcc35703260360' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -371,7 +366,7 @@ admin4() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'uea50f7108c44b400a9f70b75f7848fcf' }
+            { mid: 'u69e21a482cfd20d69e64c61211981f9a' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -383,7 +378,7 @@ admin5() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u32ef4dadf69649c7199b81bb7f4a3df0' }
+            { mid: 'u82baf31849e833be723c3e02baa8343d' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -395,7 +390,7 @@ admin6() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'ua89b571977cb320814c4175591db2d23' }
+            { mid: 'u32fd5da49b4de7889329b6d34cabd76f' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -407,7 +402,7 @@ admin7() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u90a32052cf753761431423d1ee234591' }
+            { mid: 'uee9e80bb60a2643670e51eb5e36b25e9' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -419,7 +414,7 @@ admin8() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u8b8fad7361ed7c32a1b9c2448732f528' }
+            { mid: 'u5062435f8fbb06f189dc92a2ed9526ad' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -431,7 +426,7 @@ admin9() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u7cbe6149e62a5df0d42c46f590760601' }
+            { mid: 'ud9997652103dfbde0ce50d6262d006f2' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -443,7 +438,7 @@ admin10() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u8748762cfc5091da024235c27975a0e0' }
+            { mid: 'u6d007f570d0c94893fe9480ad2681229' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -455,7 +450,7 @@ admin11() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'ue43a33a6ea6350447b7ca1de72e23c2e' }
+            { mid: 'uac2caa69eedc8b0cbd16dc67f91e1774' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -467,7 +462,7 @@ admin12() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'u8333a7b83f7742aa795672420d2376df' }
+            { mid: 'u965d3beb7171dd4c86e1f7c1563ec0a6' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -479,7 +474,7 @@ admin13() {
             contentType: 13,
             contentPreview: null,
             contentMetadata: 
-            { mid: 'ud7fb95cc02f0f7d09898669633520040' }
+            { mid: 'u813e54635fa8ca8c016090e933582652' }
         }
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
@@ -597,7 +592,7 @@ admin13() {
     checkIP() {
         exec(`wget ipinfo.io/${this.payload[0]} -qO -`,(err, res) => {
             if(err) {
-                this._sendMessage(this.messages,'Error Please Install Wget');
+                this._sendMessage(this.messages,'Error please install Wiget');
                 return 
             }
             const result = JSON.parse(res);
@@ -624,14 +619,14 @@ admin13() {
                     this._sendMessage(this.messages,'Not Found');
                 }
             } else {
-                this._sendMessage(this.messages,'Location Not Found , Maybe di dalem goa');
+                this._sendMessage(this.messages,'Location Not Found!');
             }
         })
         return;
     }
 
     async rechecks() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
+        this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
@@ -640,7 +635,7 @@ admin13() {
     }
 
     async recheckss() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
+        this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
@@ -649,7 +644,7 @@ admin13() {
     }
 
     async rechecksss() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
+        this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
@@ -658,7 +653,7 @@ admin13() {
 }
 
     async recheckssss() {
-        this._sendMessage(this.messages,'Ketik Clear/Reset Untuk Menghapus List Sider');
+        this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
@@ -668,11 +663,10 @@ admin13() {
 
     infokick() {
                     this._sendMessage(this.messages, `Cara Menggunakan Fitur Kickall :
-1. Ketik Kick on
-2. Kalau Seperti Ini Berarti Kick Mode Sudah On
-    Status: 
-"cancel":0,"kick":1
-3. Terakhir, Kamu Ketik Kickall (Gak Pake Spasi)
+1. Ketik "Kick on"
+2. Kalau seperti ini berarti Kick Mode sudah On
+    Status: "cancel":0,"kick":1
+3. Terakhir, Kamu Ketik Cipok
 4. Done~`);
      }
 
@@ -693,126 +687,110 @@ admin13() {
             }
             return;
         } 
-        return this._sendMessage(this.messages, ' Kick Error, Fitur Kick Hanya Untuk Admin Saja!');
+        return this._sendMessage(this.messages, ' Fitur Kick hanya untuk Admin saja!');
     }
 
     help() {
-           this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
+           this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
-
-           🎶 Keyword Dalam Group 🎶
-•[Chucky keluar] = Mengusir Bot Dari Group
+           ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
-•[Speed] = Ngetest Respons Bot
+•[Speed] = Test Respons Bot
 •[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk Memulai Sider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
+•[Set] = Untuk Memulai Sider
+•[Check] = Melihat List Yang Sider
+•[Clear] = Untuk Hapus List Sider
 •[Myid] = Untuk Mengetahui MID
-•[Ig Ursname Kamu] = Info Instagram Kamu
+•[Ig Username] = Info Instagram
 •[Qr Open/Close] = Buka/Tutup Link Group
-•[spam (S Huruf Kecil)] = Bot Akan Spam
+•[Spam] = Bot Akan Spam
 •[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
+•[Desah] = Mengetag Semua Member
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-     {             this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+     {             this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
      }
      }
 
     help1() {
-               this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
+               this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
-
-           🎶 Keyword Dalam Group 🎶
-•[Chucky keluar] = Mengusir Bot Dari Group
+           ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
-•[Speed] = Ngetest Respons Bot
+•[Speed] = Test Respons Bot
 •[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk Memulai Sider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
+•[Set] = Untuk Memulai Sider
+•[Check] = Melihat List Yang Sider
+•[Clear] = Untuk Hapus List Sider
 •[Myid] = Untuk Mengetahui MID
-•[Ig Ursname Kamu] = Info Instagram Kamu
+•[Ig Username] = Info Instagram
 •[Qr Open/Close] = Buka/Tutup Link Group
-•[spam (S Huruf Kecil)] = Bot Akan Spam
+•[Spam] = Bot Akan Spam
 •[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
+•[Desah] = Mengetag Semua Member
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-      {              this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+      {              this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
      }
      }
 
     help2() {
-                  this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
+                  this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
-
-           🎶 Keyword Dalam Group 🎶
-•[Chucky keluar] = Mengusir Bot Dari Group
+           ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
-•[Speed] = Ngetest Respons Bot
+•[Speed] = Test Respons Bot
 •[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk Memulai Sider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
+•[Set] = Untuk Memulai Sider
+•[Check] = Melihat List Yang Sider
+•[Clear] = Untuk Hapus List Sider
 •[Myid] = Untuk Mengetahui MID
-•[Ig + Ursname Kamu] = Info Instagram
+•[Ig Username] = Info Instagram
 •[Qr Open/Close] = Buka/Tutup Link Group
-•[spam (S Huruf Kecil)] = Bot Akan Spam
+•[Spam] = Bot Akan Spam
 •[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
+•[Desah] = Mengetag Semua Member
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 
-                    this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+                    this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
      }
 
     help3() {
      {
-                  this._sendMessage(this.messages, `           🎶 Keyword Khusus Admin 🎶
+                  this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
-•[Kickall] = Mengekick Semua Member
-•[Info kick] = Cara Menggunakan Fitur Kickall
 •[Cancel On/Off] = On/Off Mode Cancel
 •[Cancelall] = Membatalkan Semua Invite'an
 •[Qrp On/Off]= On/Off Link Group
-
-           🎶 Keyword Dalam Group 🎶
-•[Chucky keluar] = Mengusir Bot Dari Group
+           ㉿ Keyword Dalam Group ㉿
 •[Status] = Menampilkan Info Kick&Cancel
-•[Speed] = Ngetest Respons Bot
+•[Speed] = Test Respons Bot
 •[Left NamaGroup] = Bot Keluar Dari Group
-•[Setpoint/Set] = Untuk MemulaiSider
-•[Recheck/Check] = Melihat List Yang Sider
-•[Clear/Reset] = Untuk Hapus List Sider
+•[Set] = Untuk Memulai Sider
+•[Check] = Melihat List Yang Sider
+•[Clear] = Untuk Hapus List Sider
 •[Myid] = Untuk Mengetahui MID
-•[Ig + Ursname Kamu] = Info Instagram
+•[Ig Username] = Info Instagram
 •[Qr Open/Close] = Buka/Tutup Link Group
-•[spam (S Huruf Kecil)] = Bot Akan Spam
+•[Spam] = Bot Akan Spam
 •[List admin] = Melihat Daftar Admin
-•[Tag all] = Mengetag Semua Member
+•[Desah] = Mengetag Semua Member
 •[Creator] = Owner Pembuat Bot
 •[Gift] = Sent Sticker`);
 }
-                 this._sendMessage(this.messages, `NB : Ketik "Chat1" Untuk Keyword Selanjutnya!`);
+                 this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™ ]|||[BHT™]•㉿CNN™ «--•`);
      }
 
     chat1() {
