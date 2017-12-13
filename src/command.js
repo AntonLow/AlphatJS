@@ -177,7 +177,7 @@ class Command extends LineAPI {
     }
 
     setReader() {
-        this._sendMessage(this.messages, `Setpoint... Ketik "Recheck/Check" untuk melihat sider !`);
+        this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
     }
