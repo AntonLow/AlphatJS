@@ -60,12 +60,6 @@ class LINE extends Command {
         }
 
         if(operation.type == 19) { //ada kick
-     {
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "x_x"
-this._client.sendMessage(0,nadyaq);
-     }
             // op1 = group nya
             // op2 = yang 'nge' kick
             // op3 = yang 'di' kick
@@ -80,43 +74,18 @@ this._client.sendMessage(0,nadyaq);
         }
 
 if(operation.type == 11) { //bukattupQR
-     {
-let nadyasayang = new Message();
-nadyasayang.to = operation.param1;
-nadyasayang.text = "-__-"
-this._client.sendMessage(0,nadyasayang);
-     }
             if(!this.isAdminOrBot(operation.param2)){
                 this._kickMember(operation.param1,[operation.param2]);
             } 
 }
 
 if(operation.type == 15) { //leave grup
-     {
-let nadyasayang = new Message();
-nadyasayang.to = operation.param1;
-nadyasayang.text = "o_o"
-
-this._client.sendMessage(0,nadyasayang);
-     }
   this._invite(operation.param1,[operation.param2]);
 }
 
 if(operation.type == 17) { //joingroup
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Selamat datang, semoga betah disini..."
-
-this._client.sendMessage(0,nadyaq);
-}
 
 if(operation.type == 32) { //adaygbatalin
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "b_d"
-
-this._client.sendMessage(0,nadyaq);
-     }
 
         if(operation.type == 55){ //ada reader
             const idx = this.checkReader.findIndex((v) => {
@@ -140,19 +109,10 @@ this._client.sendMessage(0,nadyaq);
 
 
         if(operation.type == 5) { // diadd
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Makasih sudah di add ^_^"
-this._client.sendMessage(0,nadyaq);
-}
 
         if(operation.type == 13) { // diinvite
                 this._acceptGroupInvitation(operation.param1);
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Makasih sudah diinvite, salken semua..."
 
-this._client.sendMessage(0,nadyaq);
 }
         this.getOprationType(operation);
     }
