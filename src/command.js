@@ -34,6 +34,7 @@ class Command extends LineAPI {
         if(listPendingInvite.length > 0){
             this._cancel(gid,listPendingInvite);
         }
+        }
     }
 
     async searchGroup(gid) {
