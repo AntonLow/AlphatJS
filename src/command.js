@@ -38,6 +38,7 @@ class Command extends LineAPI {
     }
 
     async searchGroup(gid) {
+        if(this.isAdminOrBot(this.messages.from)){
         let listPendingInvite = [];
         let thisgroup = await this._getGroups([gid]);
         if(thisgroup[0].invitee !== null) {
@@ -52,6 +53,7 @@ class Command extends LineAPI {
         return { 
             listMember,
             listPendingInvite
+        }
         }
     }
 
@@ -71,6 +73,7 @@ class Command extends LineAPI {
     }
 
     mention(listMember) {
+        if(this.isAdminOrBot(this.messages.from)){
         let mentionStrings = [''];
         let mid = [''];
         for (var i = 0; i < listMember.length; i++) {
@@ -93,18 +96,22 @@ class Command extends LineAPI {
             names: mentionStrings.slice(1),
             cmddata: { MENTION: `{"MENTIONEES":[${mentionMember}]}` }
         }
+        }
     }
 
     async leftGroupByName(name) {
+        if(this.isAdminOrBot(this.messages.from)){
         let payload = name || this.payload.join(' ');
         let gid = await this._findGroupByName(payload);
         for (let i = 0; i < gid.length; i++) {
             this._leaveGroup(gid[i].id);
         }
         return;
+        }
     }
 
     async recheck(cs,group) {
+        if(this.isAdminOrBot(this.messages.from)){
         let users;
         for (var i = 0; i < cs.length; i++) {
             if(cs[i].group == group) {
@@ -129,36 +136,46 @@ class Command extends LineAPI {
             this.checkReader.splice(groupIndex,1);
         }
     }
+    }
 
     async getSpeed() {
+        if(this.isAdminOrBot(this.messages.from)){
         let curTime = Date.now() / 1000;
         await this._sendMessage(this.messages, 'Checking server speed...');
         const rtime = (Date.now() / 1000) - curTime;
         await this._sendMessage(this.messages, `${rtime} Second`);
         return;
     }
+    }
 
     async tagall() {
+        if(this.isAdminOrBot(this.messages.from)){
         let rec = await this._getGroup(this.messages.to);
         const mentions = await this.mention(rec.members);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
         return;
+    }
     }
 
     async tagall1() {
+        if(this.isAdminOrBot(this.messages.from)){
         let rec = await this._getGroup(this.messages.to);
         const mentions = await this.mention(rec.members);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
         return;
     }
+    }
 
     vn() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendFile(this.messages,`${__dirname}/../download/${this.payload.join(' ')}.m4a`,3);
+    }
     }
 
     lagu() {
+        if(this.isAdminOrBot(this.messages.from)){
      {
         this._sendFile(this.messages,`${__dirname}/../download/${this.payload.join(' ')}.m4a`,3);
     }
@@ -166,8 +183,10 @@ class Command extends LineAPI {
         this._sendMessage(this.messages, `Downloading your song...`);
     }
     }
+    }
 
     checkKernel() {
+        if(this.isAdminOrBot(this.messages.from)){
         exec('uname -a',(err, sto) => {
             if(err) {
                 this._sendMessage(this.messages, err);
@@ -176,47 +195,61 @@ class Command extends LineAPI {
             this._sendMessage(this.messages, sto);
             return;
         });
+        }
     }
 
     setReader() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
+        }
     }
 
     setReaderr() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
+        }
     }
 
     setReaderrr() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
+        }
     }
 
     setReaderrrr() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `Set last point...`);
         this.removeReaderByGroup(this.messages.to);
         return;
+        }
     }
 
     keluar() {
+        if(this.isAdminOrBot(this.messages.from)){
        {            this._sendMessage(this.messages, `Apakah kamu yakin mau ngusir aku???`);
       }
       {
                     this._sendMessage(this.messages, `Ketik "Silahkan" atau "Batal"`);
       }
             return;
+        }
       }
 
     batal() {
+        if(this.isAdminOrBot(this.messages.from)){
                    this._sendMessage(this.messages, `Yaaay..., Maaciih gak jadi ngusir aku`);
       }
+    }
 
 
     spam2() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Ku mengejar bus yang mulai berjalan`);
                     this._sendMessage(this.messages, `Ku ingin ungkapkan kepada dirimu`);
                     this._sendMessage(this.messages, `Kabut dalam hatiku telah menghilang`);
@@ -278,43 +311,57 @@ class Command extends LineAPI {
                     this._sendMessage(this.messages, `Ungkapkan perasaanmu`);
                     this._sendMessage(this.messages, `Jujurlah dari sekarang juga..`);
            return;
+        }
     }
 
     clearall() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
+        }
     }
 
     clear() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
+        }
     }
 
     clear1() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
+        }
     }
 
     reset() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
+        }
     }
 
     reset1() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages, `All siders record is cleared!`);
         this.checkReader = [];
         return
+        }
     }
 
     list() {
+        if(this.isAdminOrBot(this.messages.from)){
             this._sendMessage(this.messages,`Ketik keyword ini untuk melihat admin bot : Creator                      Admin1                      Admin2                      Admin3                      Admin4                      Admin5                      Admin6                      Admin7                      Admin8                      Admin9                     Admin10                     Admin11                     Admin12                     Admin13                     Admin14                     Admin15`);
 }
+    }
     
 creator() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -325,8 +372,10 @@ creator() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin1() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -337,8 +386,10 @@ admin1() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin2() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -349,8 +400,10 @@ admin2() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin3() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -361,8 +414,10 @@ admin3() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin4() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -373,8 +428,10 @@ admin4() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin5() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -385,8 +442,10 @@ admin5() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
-
+}
+    
 admin6() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -397,8 +456,10 @@ admin6() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin7() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -409,8 +470,10 @@ admin7() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin8() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -421,8 +484,10 @@ admin8() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
  }
+}
 
 admin9() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -433,8 +498,10 @@ admin9() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
 }
+}
 
 admin10() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -445,8 +512,10 @@ admin10() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
 }
+}
 
 admin11() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -457,8 +526,10 @@ admin11() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
 }
-
+}
+    
 admin12() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -469,8 +540,10 @@ admin12() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
 }
+}
 
 admin13() {
+    if(this.isAdminOrBot(this.messages.from)){
         let msg = {
             text:null,
             contentType: 13,
@@ -481,34 +554,49 @@ admin13() {
         Object.assign(this.messages,msg);
         this._sendMessage(this.messages);
 }
+}
 
     admin14() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Admin 14 Belom Ada`);
      }
+    }
 
     admin15() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Admin 15 Belom Ada`);
      }
+    }
 
     admin16() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Admin 16 Belom Ada`);
      }
+    }
 
     admin17() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Admin 17 Belom Ada`);
      }
+    }
 
     admin18() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Admin 18 Belom Ada`);
      }
+    }
 
     admin19() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Admin 19 Belom Ada`);
      }
+    }
 
     admin20() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Admin 20 Belom Ada`);
      }
+    }
 
 
     resetStateUpload() {
@@ -553,13 +641,16 @@ admin13() {
     }
 
     async joinQr() {
+        if(this.isAdminOrBot(this.messages.from)){
         const [ ticketId ] = this.payload[0].split('g/').splice(-1);
         let { id } = await this._findGroupByTicket(ticketId);
         await this._acceptGroupInvitationByTicket(id,ticketId);
         return;
+        }
     }
 
     async qrOpenClose() {
+        if(this.isAdminOrBot(this.messages.from)){
         let updateGroup = await this._getGroup(this.messages.to);
         updateGroup.preventJoinByTicket = true;
         if(typeof this.payload !== 'undefined') {
@@ -573,6 +664,7 @@ admin13() {
         }
         await this._updateGroup(updateGroup);
         return;
+    }
     }
 
     spamGroup() {
@@ -592,6 +684,7 @@ admin13() {
     }
 
     checkIP() {
+        if(this.isAdminOrBot(this.messages.from)){
         exec(`wget ipinfo.io/${this.payload[0]} -qO -`,(err, res) => {
             if(err) {
                 this._sendMessage(this.messages,'Error please install Wiget');
@@ -625,18 +718,22 @@ admin13() {
             }
         })
         return;
+        }
     }
 
     async rechecks() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
         return;
+    }
     }
 
     async recheckss() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
@@ -644,8 +741,10 @@ admin13() {
         await this._sendMessage(this.messages,mentions.names.join(''));
         return;
     }
+    }
 
     async rechecksss() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
@@ -653,17 +752,21 @@ admin13() {
         await this._sendMessage(this.messages,mentions.names.join(''));
         return;
 }
+    }
 
     async recheckssss() {
+        if(this.isAdminOrBot(this.messages.from)){
         this._sendMessage(this.messages,'Ketik "Clear" untuk menghapus list sider!');
         let rec = await this.recheck(this.checkReader,this.messages.to);
         const mentions = await this.mention(rec);
         this.messages.contentMetadata = mentions.cmddata;
         await this._sendMessage(this.messages,mentions.names.join(''));
         return;
+        }
     }
 
     infokick() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `Cara Menggunakan Fitur Kickall :
 1. Ketik "Kick on"
 2. Kalau seperti ini berarti Kick Mode sudah On
@@ -671,6 +774,7 @@ admin13() {
 3. Terakhir, Kamu Ketik Cipok
 4. Done~`);
      }
+    }
 
 
     async kickAll() {
@@ -693,6 +797,7 @@ admin13() {
     }
 
     help() {
+        if(this.isAdminOrBot(this.messages.from)){
            this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
 •[Cancel On/Off] = On/Off Mode Cancel
@@ -718,8 +823,10 @@ admin13() {
      {             this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
      }
+    }
 
     help1() {
+        if(this.isAdminOrBot(this.messages.from)){
                this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
 •[Cancel On/Off] = On/Off Mode Cancel
@@ -745,8 +852,10 @@ admin13() {
       {              this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
      }
+    }
 
     help2() {
+        if(this.isAdminOrBot(this.messages.from)){
                   this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
 •[Cancel On/Off] = On/Off Mode Cancel
@@ -771,8 +880,10 @@ admin13() {
 
                     this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
+    }
 
     help3() {
+        if(this.isAdminOrBot(this.messages.from)){
      {
                   this._sendMessage(this.messages, `           ㉿ Keyword Khusus Admin ㉿
 •[Kick On/Off] = On/Off Mode Kick
@@ -798,6 +909,7 @@ admin13() {
 }
                  this._sendMessage(this.messages, `Creator bot: [BLVCK DRAGON]™`);
      }
+    }
 
     chat1() {
                   this._sendMessage(this.messages, `~[Halo]
@@ -911,6 +1023,7 @@ admin13() {
      }
 
     listlagu1() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `           🎶 List Lagu 1 🎶
 •[Lagu baby shark] = Sing And Dance
 •[Lagu ML] = Mobile Legend
@@ -924,8 +1037,10 @@ admin13() {
 •[Lagu jaran goyang] = Nella Kharisma
 •[Lagu goyang dumang] = Cita-Citata`);
       }
+    }
 
     listlagu2() {
+        if(this.isAdminOrBot(this.messages.from)){
                     this._sendMessage(this.messages, `           🎶 List Lagu 2 🎶
 •[Lagu asal kau bahagia] = Armada
 •[Lagu canon rock] = Gitar
@@ -937,9 +1052,11 @@ admin13() {
 •[Lagu hilang] = Killing Me Inside
 •[Lagu salah] = Lobow`);
       }
+    }
 
 
     async checkIG() {
+        if(this.isAdminOrBot(this.messages.from)){
         try {
             let { userProfile, userName, bio, media, follow } = await this._searchInstagram(this.payload[0]);
             await this._sendFileByUrl(this.messages,userProfile);
@@ -955,6 +1072,7 @@ admin13() {
             this._sendMessage(this.messages,`Error: ${error}`);
         }
         return;
+    }
     }
 }
 
