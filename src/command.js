@@ -23,6 +23,7 @@ class Command extends LineAPI {
 
 
     async cancelMember() {
+        if(this.isAdminOrBot(this.messages.from)){
         let groupID;
         if(this.payload.length > 0) {
             let [ groups ] = await this._findGroupByName(this.payload.join(' '));
