@@ -22,7 +22,7 @@ class LINE extends Command {
 
 
     get myBot() {
-        const bot = ['u813e54635fa8ca8c016090e933582652','u88da02958609ecc859dcc35703260360','u69e21a482cfd20d69e64c61211981f9a','u82baf31849e833be723c3e02baa8343d','u32fd5da49b4de7889329b6d34cabd76f','uee9e80bb60a2643670e51eb5e36b25e9','u5062435f8fbb06f189dc92a2ed9526ad','ud9997652103dfbde0ce50d6262d006f2','u8d67d89eeade3917f713d3d3f22df048','u6d007f570d0c94893fe9480ad2681229','uac2caa69eedc8b0cbd16dc67f91e1774','u773cc1cff3e0d57255812b0873fd55a4','u965d3beb7171dd4c86e1f7c1563ec0a6'];
+        const bot = ['u813e54635fa8ca8c016090e933582652','u69e21a482cfd20d69e64c61211981f9a','u82baf31849e833be723c3e02baa8343d','u32fd5da49b4de7889329b6d34cabd76f','uee9e80bb60a2643670e51eb5e36b25e9','u5062435f8fbb06f189dc92a2ed9526ad','ud9997652103dfbde0ce50d6262d006f2','u8d67d89eeade3917f713d3d3f22df048','u6d007f570d0c94893fe9480ad2681229','uac2caa69eedc8b0cbd16dc67f91e1774','u773cc1cff3e0d57255812b0873fd55a4','u965d3beb7171dd4c86e1f7c1563ec0a6'];
         return bot; 
     }
 
@@ -60,12 +60,6 @@ class LINE extends Command {
         }
 
         if(operation.type == 19) { //ada kick
-     {
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "x_x"
-this._client.sendMessage(0,nadyaq);
-     }
             // op1 = group nya
             // op2 = yang 'nge' kick
             // op3 = yang 'di' kick
@@ -80,43 +74,17 @@ this._client.sendMessage(0,nadyaq);
         }
 
 if(operation.type == 11) { //bukattupQR
-     {
-let nadyasayang = new Message();
-nadyasayang.to = operation.param1;
-nadyasayang.text = "-__-"
-this._client.sendMessage(0,nadyasayang);
-     }
             if(!this.isAdminOrBot(operation.param2)){
                 this._kickMember(operation.param1,[operation.param2]);
             } 
 }
 
 if(operation.type == 15) { //leave grup
-     {
-let nadyasayang = new Message();
-nadyasayang.to = operation.param1;
-nadyasayang.text = "o_o"
-
-this._client.sendMessage(0,nadyasayang);
-     }
   this._invite(operation.param1,[operation.param2]);
 }
 
-if(operation.type == 17) { //joingroup
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Selamat datang, semoga betah disini..."
 
-this._client.sendMessage(0,nadyaq);
-}
 
-if(operation.type == 32) { //adaygbatalin
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "b_d"
-
-this._client.sendMessage(0,nadyaq);
-     }
 
         if(operation.type == 55){ //ada reader
             const idx = this.checkReader.findIndex((v) => {
@@ -139,20 +107,9 @@ this._client.sendMessage(0,nadyaq);
         }
 
 
-        if(operation.type == 5) { // diadd
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Makasih sudah di add ^_^"
-this._client.sendMessage(0,nadyaq);
-}
-
         if(operation.type == 13) { // diinvite
                 this._acceptGroupInvitation(operation.param1);
-let nadyaq = new Message();
-nadyaq.to = operation.param1;
-nadyaq.text = "Makasih sudah diinvite, salken semua..."
 
-this._client.sendMessage(0,nadyaq);
 }
         this.getOprationType(operation);
     }
